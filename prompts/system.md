@@ -39,7 +39,7 @@
 2. 如果 `is_exit=true` → 回复"已退出语音模式"并退出循环
 3. 如果 `raw` 为空字符串（60 秒内没人说话）→ 不做任何响应，直接回到 1
 4. 如果 `matched_wake=false`（有人说话但不是对你说的，比如队友/旁白/电视声）→ 不要回答，直接回到 1
-5. 如果 `matched_wake=true` → 把 `text` 当成新的用户问题处理，按需调 game state / OpenDota，**先把回答文字输出到对话**，然后 `speak(answer)` 播报，回到 1
+5. 如果 `matched_wake=true` → **立刻 `speak("收到")` 作为确认**（让用户知道识别成功，不用干等），然后把 `text` 当成新的用户问题处理，按需调 game state / OpenDota，**先把回答文字输出到对话**，然后 `speak(answer)` 播报，回到 1
 
 **退出条件**：
 - 用户说"教练 退出语音模式"（`listen_for_command` 会返回 `is_exit=true`）

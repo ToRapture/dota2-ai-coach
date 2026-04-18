@@ -49,7 +49,7 @@ description: Use when the user is playing Dota 2 and wants real-time in-game coa
 2. `is_exit=true` → 回复"已退出语音模式"并退出循环
 3. `raw` 为空 (60s 没人说话) → 不响应，直接回到 1
 4. `matched_wake=false` (有语音但不是对你说的，如队友声 / 电视声) → 不响应，直接回到 1
-5. `matched_wake=true` → 把 `text` 当用户问题处理 → **先把回答文字输出到对话** → `speak(answer)` → 回到 1
+5. `matched_wake=true` → **立刻 `speak("收到")` 作为确认**（这样用户知道识别成功、不用干等） → 把 `text` 当用户问题处理 → **先把回答文字输出到对话** → `speak(answer)` → 回到 1
 
 **退出条件**：
 - 用户说 "教练 退出语音模式" (`is_exit=true`)
