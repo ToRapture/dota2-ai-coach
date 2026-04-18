@@ -205,3 +205,21 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Claude Code 本地 / 用户态 (project-scoped skills 仍然要 commit)
+.claude/settings.local.json
+
+# macOS / Windows 元数据
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 录音 / TTS 调试产物
+/tmp/
+*.mp3
+*.wav
+*.opus
+
+# IDE
+.idea/
+.vscode/
