@@ -49,7 +49,7 @@ uv sync
 
 首次 `uv sync` 会装 PyTorch（约 600MB）等依赖。
 
-`faster-whisper` 的 `base` 模型（约 140MB）在第一次调用语音工具时自动下载，不需要手动操作。
+`faster-whisper` 的 `large-v3` 模型（约 1.5GB）在第一次调用语音工具时自动下载，不需要手动操作。性能较低的机器可以通过 `DOTA2_COACH_WHISPER_MODEL=small` 切回小模型。
 
 ### 3. 安装 Dota 2 GSI 配置
 
@@ -128,7 +128,7 @@ uv run python -m dota2_coach --selftest
 
 应该看到 7 个 MCP 工具注册成功、GSI 路由 `/gsi` 和 `/healthz` 已绑定。
 
-更完整的 smoke 测试（会请求 OpenDota、下载 Whisper base 模型约 140MB）：
+更完整的 smoke 测试（会请求 OpenDota、首次跑 whisper_load 会下载 large-v3 模型约 1.5GB）：
 
 ```powershell
 uv run python -m tests.smoke         # GSI / MCP / OpenDota
@@ -218,7 +218,7 @@ setx OPENDOTA_API_KEY "你的key"
 | `DOTA2_COACH_GSI_HOST` | `127.0.0.1` | GSI HTTP 监听地址 |
 | `DOTA2_COACH_GSI_PORT` | `27050` | GSI HTTP 监听端口 |
 | `OPENDOTA_API_KEY` | 空 | OpenDota API key |
-| `DOTA2_COACH_WHISPER_MODEL` | `base` | `tiny` / `base` / `small` / `medium` |
+| `DOTA2_COACH_WHISPER_MODEL` | `large-v3` | `tiny` / `base` / `small` / `medium` / `large-v3` |
 | `DOTA2_COACH_WHISPER_DEVICE` | `auto` | `auto` / `cpu` / `cuda` |
 | `DOTA2_COACH_WHISPER_LANG` | `zh` | whisper 识别语言 |
 | `DOTA2_COACH_TTS_VOICE` | `zh-CN-XiaoxiaoNeural` | 见 `edge-tts --list-voices` |

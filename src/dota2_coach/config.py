@@ -10,7 +10,7 @@ class Config:
     gsi_host: str = "127.0.0.1"
     gsi_port: int = 27050
     opendota_api_key: str | None = None
-    whisper_model: str = "base"
+    whisper_model: str = "large-v3"
     whisper_device: str = "auto"
     whisper_language: str = "zh"
     tts_voice: str = "zh-CN-XiaoxiaoNeural"
@@ -23,7 +23,7 @@ def load_config() -> Config:
         gsi_host=os.environ.get("DOTA2_COACH_GSI_HOST", "127.0.0.1"),
         gsi_port=int(os.environ.get("DOTA2_COACH_GSI_PORT", "27050")),
         opendota_api_key=os.environ.get("OPENDOTA_API_KEY") or None,
-        whisper_model=os.environ.get("DOTA2_COACH_WHISPER_MODEL", "base"),
+        whisper_model=os.environ.get("DOTA2_COACH_WHISPER_MODEL", "large-v3"),
         whisper_device=os.environ.get("DOTA2_COACH_WHISPER_DEVICE", "auto"),
         whisper_language=os.environ.get("DOTA2_COACH_WHISPER_LANG", "zh"),
         tts_voice=os.environ.get("DOTA2_COACH_TTS_VOICE", "zh-CN-XiaoxiaoNeural"),

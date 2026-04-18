@@ -132,7 +132,7 @@ class VoiceListener:
             language=self.config.whisper_language,
             initial_prompt="以下是普通话对话。",
             vad_filter=False,
-            beam_size=1,
+            beam_size=5,
         )
         text = "".join(seg.text for seg in segments).strip()
         log.info("ASR: %r", text)
