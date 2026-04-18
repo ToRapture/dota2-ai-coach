@@ -52,7 +52,7 @@ description: Use when the user is playing Dota 2 and wants real-time in-game coa
 5. `matched_wake=true` → 把 `text` 当用户问题处理 → **先把回答文字输出到对话** → `speak(answer)` → 回到 1
 
 **退出条件**：
-- 用户说 "AI教练 退出语音模式" (`is_exit=true`)
+- 用户说 "教练 退出语音模式" (`is_exit=true`)
 - 用户按 ESC → 工具调用被取消 → 立即停止循环，回复"已退出语音模式"
 
 ## 约束

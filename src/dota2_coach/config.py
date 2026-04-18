@@ -14,7 +14,7 @@ class Config:
     whisper_device: str = "auto"
     whisper_language: str = "zh"
     tts_voice: str = "zh-CN-XiaoxiaoNeural"
-    wake_phrases: tuple[str, ...] = ("ai教练", "ai 教练", "艾教练", "爱教练")
+    wake_phrases: tuple[str, ...] = ("教练", "ai教练", "ai 教练", "艾教练", "爱教练")
     exit_phrases: tuple[str, ...] = ("退出语音模式", "退出语音", "停止语音")
 
 

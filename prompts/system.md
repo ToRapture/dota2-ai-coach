@@ -42,7 +42,7 @@
 5. 如果 `matched_wake=true` → 把 `text` 当成新的用户问题处理，按需调 game state / OpenDota，**先把回答文字输出到对话**，然后 `speak(answer)` 播报，回到 1
 
 **退出条件**：
-- 用户说"AI教练 退出语音模式"（`listen_for_command` 会返回 `is_exit=true`）
+- 用户说"教练 退出语音模式"（`listen_for_command` 会返回 `is_exit=true`）
 - 用户按 ESC 中断工具调用，**你必须停止循环**，回复"已退出语音模式"
 
 ## 重要约束

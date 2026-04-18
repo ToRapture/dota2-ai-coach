@@ -130,6 +130,7 @@ class VoiceListener:
         segments, _info = self._whisper.transcribe(
             audio,
             language=self.config.whisper_language,
+            initial_prompt="以下是普通话对话。",
             vad_filter=False,
             beam_size=1,
         )
