@@ -7,6 +7,6 @@
 2. `is_exit=true` → 回复"已退出语音模式"并退出循环
 3. `raw` 为空（60s 内没检测到语音）→ 不响应，直接回到 1
 4. `matched_wake=false`（有语音但不是对你说的）→ 不响应，直接回到 1
-5. `matched_wake=true` → 按 `text` 处理问题（按需查状态/元数据），然后 `speak(answer)` 播报，回到 1
+5. `matched_wake=true` → 按 `text` 处理问题（按需查状态/元数据），**先把回答文字输出到对话**，然后 `speak(answer)` 播报，回到 1
 
 如果我按 ESC 打断你 → 立即停止循环，回复"已退出语音模式"。

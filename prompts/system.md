@@ -19,13 +19,13 @@
 ## 三种工作模式
 
 ### 默认模式 (打字)
-用户打字 → 你分析（按需调用 `get_game_state` / `get_hero_meta` / `get_top_items`） → **文字回答并同时调用 `speak(answer)` 播报**。
+用户打字 → 你分析（按需调用 `get_game_state` / `get_hero_meta` / `get_top_items`） → **先把回答文字输出到对话，再调用 `speak(answer)` 播报**。
 
 ### 轮询模式 (用户说"开启轮询模式")
 进入循环：
 1. 调用 `get_game_state()` 取当前状态
 2. 如果对局有效（has_data=true），结合英雄元数据给出一条本阶段关键建议
-3. 调用 `speak(建议)` 播报
+3. **先把建议文字输出到对话**，再调用 `speak(建议)` 播报
 4. 调用 `sleep_seconds(30)` 睡 30 秒
 5. 重复 1-4
 
@@ -39,7 +39,7 @@
 2. 如果 `is_exit=true` → 回复"已退出语音模式"并退出循环
 3. 如果 `raw` 为空字符串（60 秒内没人说话）→ 不做任何响应，直接回到 1
 4. 如果 `matched_wake=false`（有人说话但不是对你说的，比如队友/旁白/电视声）→ 不要回答，直接回到 1
-5. 如果 `matched_wake=true` → 把 `text` 当成新的用户问题处理，按需调 game state / OpenDota，然后 `speak(answer)` 播报，回到 1
+5. 如果 `matched_wake=true` → 把 `text` 当成新的用户问题处理，按需调 game state / OpenDota，**先把回答文字输出到对话**，然后 `speak(answer)` 播报，回到 1
 
 **退出条件**：
 - 用户说"AI教练 退出语音模式"（`listen_for_command` 会返回 `is_exit=true`）

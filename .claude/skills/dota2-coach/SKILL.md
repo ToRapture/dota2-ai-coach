@@ -34,7 +34,7 @@ description: Use when the user is playing Dota 2 and wants real-time in-game coa
 循环：
 1. `get_game_state()`
 2. 对局有效 (`has_data=true`) 时结合英雄元数据给出一条本阶段关键建议
-3. `speak(建议)` 播报
+3. **先把建议文字输出到对话**，再调用 `speak(建议)` 播报
 4. `sleep_seconds(30)`
 5. 回到 1
 
@@ -49,7 +49,7 @@ description: Use when the user is playing Dota 2 and wants real-time in-game coa
 2. `is_exit=true` → 回复"已退出语音模式"并退出循环
 3. `raw` 为空 (60s 没人说话) → 不响应，直接回到 1
 4. `matched_wake=false` (有语音但不是对你说的，如队友声 / 电视声) → 不响应，直接回到 1
-5. `matched_wake=true` → 把 `text` 当用户问题处理 → `speak(answer)` → 回到 1
+5. `matched_wake=true` → 把 `text` 当用户问题处理 → **先把回答文字输出到对话** → `speak(answer)` → 回到 1
 
 **退出条件**：
 - 用户说 "AI教练 退出语音模式" (`is_exit=true`)
