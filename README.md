@@ -240,7 +240,7 @@ pwsh scripts\uninstall-all.ps1
 4. 删除 HuggingFace / torch hub 里的 whisper + silero-vad 模型缓存
 
 **仍需手动**：
-1. 从 Claude Code `settings.json` / OpenCode `config.json` 中删掉 `dota2-coach` 条目
+1. 从 Claude Code `%USERPROFILE%\.claude.json` (顶层 `mcpServers` 键) / OpenCode `config.json` 中删掉 `dota2-coach` 条目
 2. 在 Steam Dota 2 启动项里去掉 `-gamestateintegration`
 3. 要连项目源码也删掉：`Remove-Item -Recurse -Force D:\Codes\github\ToRapture\dota2-ai-coach`
 

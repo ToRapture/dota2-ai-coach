@@ -72,6 +72,7 @@ def build_mcp(config: Config, opendota: OpenDotaClient) -> FastMCP:
 
     @mcp.tool(description="用 edge-tts 播报文本 (中文). voice 可传 zh-CN 的 edge-tts voice 名, 如 zh-CN-YunyangNeural.")
     async def speak(text: str, voice: str | None = None) -> dict[str, Any]:
+        log.info("speak: %s", text)
         duration = await speaker.speak(text, voice)
         return {"duration_seconds": round(duration, 3)}
 
